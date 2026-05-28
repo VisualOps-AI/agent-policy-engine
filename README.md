@@ -4,9 +4,21 @@ A lightweight policy engine for AI agent tool-use governance. Evaluates proposed
 
 Built for the [Aegis Platform](https://github.com/VisualOps-AI/aegis-platform) ecosystem. Designed to sit between an AI agent's intent and its execution layer, enforcing security boundaries before actions reach production systems.
 
+This project demonstrates a practical control layer for AI agents that need access to filesystems, shells, APIs, databases, or internal business tools.
+
+## Current Status
+
+Agent Policy Engine is an MVP portfolio project with working CLI evaluation, YAML/JSON policy loading, schema validation, deterministic rule matching, decision priority, and test coverage.
+
+Current focus: keeping the engine small, predictable, and easy to integrate into agent execution layers.
+
 ## Problem
 
-AI agents with tool access can read secrets, execute destructive commands, and write to arbitrary paths. Without a policy layer, every tool call is implicitly trusted. Runtime guardrails are either hardcoded per-tool or missing entirely.
+AI agents are increasingly being given access to filesystems, shells, APIs, browsers, databases, and internal tools.
+
+Without a policy layer, every tool call is implicitly trusted.
+
+That creates risk when an agent attempts to read secrets, execute destructive commands, write to sensitive paths, exfiltrate data, or perform actions that should require human approval.
 
 ## Solution
 
@@ -148,15 +160,23 @@ All criteria in a rule must match (AND logic). If a criterion is omitted, it mat
 
 See [docs/roadmap.md](docs/roadmap.md) for the full plan.
 
+## Non-Goals
+
+Agent Policy Engine does not execute tool calls directly.
+
+It does not replace identity management, sandboxing, network security, or human review.
+
+Its role is to evaluate proposed actions and return structured decisions that another system can enforce.
+
 ## Relationship to Aegis / Witness
 
-This engine is a standalone module designed to plug into the **Aegis Platform** security suite:
+Agent Policy Engine is designed as a standalone control layer that can plug into the broader Aegis ecosystem.
 
-- **Aegis** provides the agent security infrastructure (auth, RBAC, scan triggers)
-- **Agent Policy Engine** provides the runtime policy evaluation layer
-- **Witness** (planned) provides the audit trail and compliance reporting
+- **Aegis / Phantom** identifies dangerous permissions, weak auth boundaries, and risky tool-chain paths.
+- **Agent Policy Engine** evaluates proposed tool calls against declarative policies.
+- **Witness** will enforce, sandbox, approve, and audit tool calls using policy decisions.
 
-The engine can run independently or as a library imported by Aegis middleware.
+The engine can run independently as a CLI/library or become the policy evaluation layer inside Aegis middleware.
 
 ## License
 
