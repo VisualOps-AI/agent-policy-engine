@@ -1,0 +1,14 @@
+{
+  "agentId": "agent-005",
+  "sessionId": "sess-abc-555",
+  "tool": "file_write",
+  "action": "write",
+  "parameters": {
+    "path": "src/utils/helper.ts",
+    "content": "export const helper = true;"
+  },
+  "metadata": {
+    "filePath": "src/utils/helper.ts",
+    "tags": ["code-generation"]
+  }
+}

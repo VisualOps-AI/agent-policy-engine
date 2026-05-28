@@ -20,6 +20,16 @@ Without a policy layer, every tool call is implicitly trusted.
 
 That creates risk when an agent attempts to read secrets, execute destructive commands, write to sensitive paths, exfiltrate data, or perform actions that should require human approval.
 
+## How It Works
+
+| Request           | Policy Match                | Decision            |
+| ----------------- | --------------------------- | ------------------- |
+| Read `README.md`  | No risky rule               | `allow`             |
+| Read `.env`       | `deny-env-access`           | `deny`              |
+| Write to `src/`   | `sandbox-file-write`        | `sandbox`           |
+| Run shell command | `approve-shell-commands`    | `approval_required` |
+| Run `rm -rf`      | `deny-destructive-commands` | `deny`              |
+
 ## Solution
 
 Declarative policy files define what agents can and cannot do. The engine matches incoming tool-call requests against rules and returns a structured decision with severity, reasoning, and audit metadata. No agent modification required -- this sits in the execution path as a gate.
