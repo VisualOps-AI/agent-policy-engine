@@ -1,0 +1,13 @@
+{
+  "agentId": "agent-003",
+  "sessionId": "sess-abc-789",
+  "tool": "shell",
+  "action": "execute",
+  "parameters": {
+    "command": "ls -la /tmp"
+  },
+  "metadata": {
+    "command": "ls -la /tmp",
+    "tags": ["diagnostic"]
+  }
+}

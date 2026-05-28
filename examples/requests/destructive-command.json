@@ -1,0 +1,13 @@
+{
+  "agentId": "agent-004",
+  "sessionId": "sess-abc-999",
+  "tool": "shell",
+  "action": "execute",
+  "parameters": {
+    "command": "rm -rf /var/data"
+  },
+  "metadata": {
+    "command": "rm -rf /var/data",
+    "tags": ["cleanup"]
+  }
+}

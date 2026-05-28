@@ -1,0 +1,42 @@
+{
+  "name": "agent-policy-engine",
+  "version": "0.1.0",
+  "description": "Lightweight policy engine for AI agent tool-use governance",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "agent-policy": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "evaluate": "node dist/cli.js evaluate"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "policy",
+    "security",
+    "governance",
+    "tool-use"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "js-yaml": "^4.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

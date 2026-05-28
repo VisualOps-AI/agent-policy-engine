@@ -1,0 +1,13 @@
+{
+  "agentId": "agent-002",
+  "sessionId": "sess-abc-456",
+  "tool": "file_read",
+  "action": "read",
+  "parameters": {
+    "path": ".env"
+  },
+  "metadata": {
+    "filePath": ".env",
+    "tags": ["config"]
+  }
+}

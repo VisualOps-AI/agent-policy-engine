@@ -1,0 +1,13 @@
+{
+  "agentId": "agent-001",
+  "sessionId": "sess-abc-123",
+  "tool": "file_read",
+  "action": "read",
+  "parameters": {
+    "path": "src/index.ts"
+  },
+  "metadata": {
+    "filePath": "src/index.ts",
+    "tags": ["read-only"]
+  }
+}

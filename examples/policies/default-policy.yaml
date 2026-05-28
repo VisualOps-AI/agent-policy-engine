@@ -1,0 +1,55 @@
+name: default-agent-policy
+version: "1.0"
+defaultDecision: allow
+defaultSeverity: low
+
+rules:
+  - id: deny-env-access
+    description: Block access to .env and secret files
+    decision: deny
+    severity: critical
+    match:
+      tool: file_*
+      pathPatterns:
+        - "*.env"
+        - "*.env.*"
+        - "*credentials*"
+        - "*secrets*"
+
+  - id: deny-destructive-commands
+    description: Block destructive shell commands
+    decision: deny
+    severity: critical
+    match:
+      tool: shell
+      commandPatterns:
+        - "rm -rf"
+        - "drop table"
+        - "truncate"
+        - "format c:"
+        - "> /dev/null"
+
+  - id: sandbox-file-write
+    description: Route file write operations to sandbox
+    decision: sandbox
+    severity: medium
+    match:
+      tool: file_write
+      action: write
+
+  - id: approve-shell-commands
+    description: Require approval for shell command execution
+    decision: approval_required
+    severity: high
+    match:
+      tool: shell
+      action: execute
+
+  - id: deny-secret-tags
+    description: Block any action tagged as secret-access
+    decision: deny
+    severity: critical
+    match:
+      tags:
+        - secret-access
+        - credential-read
