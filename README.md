@@ -1,6 +1,12 @@
 # Agent Policy Engine
 
-A lightweight policy engine for AI agent tool-use governance. Evaluates proposed tool calls from AI agents against declarative YAML/JSON policy rules and returns structured decisions: **allow**, **deny**, **sandbox**, or **approval_required**.
+![Status](https://img.shields.io/badge/status-MVP-blue)
+![Stack](https://img.shields.io/badge/stack-TypeScript-informational)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+**Policy-based control layer for AI agent tool use.**
+
+A lightweight policy engine for AI agent tool-use governance. Evaluates proposed tool calls from AI agents against declarative YAML/JSON policy rules and returns structured decisions: `allow`, `deny`, `sandbox`, or `approval_required`.
 
 Built for the [Aegis Platform](https://github.com/VisualOps-AI/aegis-platform) ecosystem. Designed to sit between an AI agent's intent and its execution layer, enforcing security boundaries before actions reach production systems.
 
@@ -22,13 +28,13 @@ That creates risk when an agent attempts to read secrets, execute destructive co
 
 ## How It Works
 
-| Request           | Policy Match                | Decision            |
-| ----------------- | --------------------------- | ------------------- |
-| Read `README.md`  | No risky rule               | `allow`             |
-| Read `.env`       | `deny-env-access`           | `deny`              |
-| Write to `src/`   | `sandbox-file-write`        | `sandbox`           |
-| Run shell command | `approve-shell-commands`    | `approval_required` |
-| Run `rm -rf`      | `deny-destructive-commands` | `deny`              |
+| Request | Policy Match | Decision |
+|---|---|---|
+| Read `README.md` | No risky rule | `allow` |
+| Read `.env` | `deny-env-access` | `deny` |
+| Write to `src/` | `sandbox-file-write` | `sandbox` |
+| Run shell command | `approve-shell-commands` | `approval_required` |
+| Run `rm -rf` | `deny-destructive-commands` | `deny` |
 
 ## Solution
 
