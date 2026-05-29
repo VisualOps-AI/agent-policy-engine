@@ -140,7 +140,7 @@ Evidence the MVP works end to end: live policy decisions from the CLI and a pass
 
 ![Test Output Screenshot](docs/assets/test-output-screenshot.png)
 
-*Full test suite passing — 7/7 covering the allow, deny, sandbox, and approval_required decision paths.*
+*Full test suite passing — 7/7 tests covering `allow`, `deny`, `sandbox`, and `approval_required` decision paths.*
 
 ## Architecture
 
@@ -178,14 +178,14 @@ See [docs/architecture.md](docs/architecture.md) for full details.
 ## Match Criteria
 
 | Criteria | Description | Example |
-|----------|-------------|---------|
+|---|---|---|
 | `tool` | Glob match on tool name | `file_*`, `shell` |
 | `action` | Glob match on action name | `write`, `execute` |
 | `pathPatterns` | Glob match on file path | `*.env`, `*credentials*` |
 | `commandPatterns` | Substring match on command | `rm -rf`, `drop table` |
 | `tags` | Any-of match on metadata tags | `secret-access` |
 
-All criteria in a rule must match (AND logic). If a criterion is omitted, it matches everything.
+All criteria in a rule must match using AND logic. If a criterion is omitted, it matches everything.
 
 ## Roadmap
 
