@@ -122,6 +122,18 @@ rules:
 }
 ```
 
+## Proof Assets
+
+Evidence the MVP works end to end: live policy decisions from the CLI and a passing test suite.
+
+![CLI Decision Screenshot](docs/assets/cli-scan-screenshot.png)
+
+*The CLI evaluating an `rm -rf` request against the default policy — matches `deny-destructive-commands`, returns `DENY` (critical), and exits non-zero so the calling layer can block.*
+
+![Test Output Screenshot](docs/assets/test-output-screenshot.png)
+
+*Full test suite passing — 7/7 covering the allow, deny, sandbox, and approval_required decision paths.*
+
 ## Architecture
 
 ```
