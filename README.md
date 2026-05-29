@@ -18,6 +18,14 @@ Agent Policy Engine is an MVP portfolio project with working CLI evaluation, YAM
 
 Current focus: keeping the engine small, predictable, and easy to integrate into agent execution layers.
 
+## Demo Video
+
+Watch the demo:
+
+[Agent Policy Engine Demo — Blocking Unsafe AI Agent Tool Calls](https://www.loom.com/share/47c95d44b2b04e778e82e4e6358b02d3)
+
+The demo shows Agent Policy Engine evaluating a proposed AI agent tool call before execution, matching it against policy rules, and returning a structured decision.
+
 ## Problem
 
 AI agents are increasingly being given access to filesystems, shells, APIs, browsers, databases, and internal tools.
